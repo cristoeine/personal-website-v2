@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "personal-website-v2",
-  "author": "cristineferllywiyanto",
+  "author": "cristine",
   "keywords": [
     "gatsby"
   ],
@@ -16,6 +16,13 @@
   },
   "dependencies": {
     "gatsby": "^5.7.0",
+    "gatsby-plugin-image": "^3.7.0",
+    "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-plugin-theme-ui": "^0.15.5",
+    "gatsby-source-filesystem": "^5.7.0",
+    "gatsby-source-graphql": "^5.7.0",
+    "gatsby-transformer-json": "^5.7.0",
+    "gatsby-transformer-sharp": "^5.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
