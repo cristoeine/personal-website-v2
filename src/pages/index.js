@@ -1,13 +1,14 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import * as React from "react"
-import { NavBar } from "./navbar"
 
-const pageStyles = {
+const web = {
   color: "white",
+  fontFamily: "Inter, sans-serif",
+}
+const pageStyles = {
   padding: 96,
   paddingLeft: 200,
   paddingBottom: 200,
-  fontFamily: "Inter, sans-serif",
 }
 const headingStyles = {
   marginTop: 0,
@@ -20,42 +21,42 @@ const paragraphStyles = {
 const paragraphAccentStyles = {
   color: "#F0DDBC",
 }
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
+const section = {
+  marginTop: 120,
+  marginBottom: 280
 }
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
+const navbar = {
+  
 }
 
 const IndexPage = (query) => {
-  // console.log(query.data.introJson.name)
+  console.log(query)
   return (
-    <div style={pageStyles}>
+    <div style={web}>
       {/* <NavBar /> */}
-      <p style={paragraphStyles}>Hi, I am</p>
-      <br />
-      <h2 style={headingStyles}>{query.data.introJson.name}</h2>
-      <br />
-      <p style={paragraphStyles}>{query.data.introJson.desc}<b style={paragraphAccentStyles}>{query.data.introJson.interest}</b></p>
+      <div>
+        <h4>Cristoeine</h4>
+        <div className="links">
+          <Link to="/">About</Link>
+          <Link to="/">Experience</Link>
+          <Link to="/">Work</Link>
+          <Link to="/">Contact</Link>
+        </div>
+      </div>
+      <div style={pageStyles}>
+        {/* section 1 */}
+        <div style={section}>
+          <p style={paragraphStyles}>Hi, I am</p>
+          <br />
+          <h2 style={headingStyles}>{query.data.introJson.name}</h2>
+          <p style={paragraphStyles}>{query.data.introJson.desc}<b style={paragraphAccentStyles}>{query.data.introJson.interest}</b></p>
+        </div>
 
+        {/* section 2 */}
+        <div style={section}>
+          <p>{query.data.aboutJson.bio}</p>
+        </div>
+      </div>
     </div>
   )
 }
@@ -70,6 +71,9 @@ export const data = graphql`
       name
       desc
       interest
+    }
+    aboutJson{
+      bio
     }
   }
 `
